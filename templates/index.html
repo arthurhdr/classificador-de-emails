@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categorizador de E-mails</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📧 Categorizador de E-mails</h1>
+            <p>Analise e priorize seus e-mails automaticamente</p>
+        </div>
+
+        <div class="card">
+            <div class="upload-section">
+                <label>Arquivo de E-mails (TXT ou PDF)</label>
+                <div class="file-input-wrapper">
+                    <div class="file-input-label">
+                        📎 Clique aqui ou arraste um arquivo
+                        <div class="file-name" id="fileName"></div>
+                    </div>
+                    <input type="file" id="fileInput" name="file" accept=".txt,.pdf" required>
+                </div>
+            </div>
+
+            <div class="upload-section">
+                <label>Comentários Adicionais (Opcional)</label>
+                <textarea id="comments" name="comentarios" rows="4" placeholder="Ex: Considerar qualquer e-mail sobre 'Reunião de Equipe' como 'Importante'."></textarea>
+            </div>
+
+            <button class="btn" id="analyzeBtn" type="button">Analisar E-mails</button>
+        </div>
+
+        <div class="error-message" id="errorMessage"></div>
+
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Analisando e-mails com IA...</p>
+        </div>
+
+        <div class="results" id="results">
+            <div class="card">
+                <h2 style="margin-bottom: 20px;">Resultados da Análise</h2>
+                
+                <div class="stats" id="stats"></div>
+                
+                <div id="emailsList"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
