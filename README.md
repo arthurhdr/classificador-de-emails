@@ -1,8 +1,6 @@
 # :email: Classificador de e-mails
 
-Aplicação desenvolvida a partir do case prático proposto no processo seletivo da empresa [AutoU](https://www.autou.io/)
-
-O case prático consistia em criar um aplicativo que pudesse Classificar e-mails em diferentes categorias baseado em seu conteúdo e gerar possíveis respostas para eles, facilitando em muito o trabalho dentro de empresas
+O case prático que gerou essa aplicação em criar um aplicativo que pudesse Classificar e-mails em diferentes categorias baseado em seu conteúdo e gerar possíveis respostas para eles, facilitando em muito o trabalho dentro de empresas
 
 A descrição completa do desafio pode ser encontrada [aqui](https://autou-digital.notion.site/Case-Pr-tico-AutoU-Desenvolvimento-18836ce78e5580d0b59bcf9610b27769) e o aplicativo desenvolvido pode ser acessado por meio do  [link](https://classificador-de-emails.up.railway.app/)
 
