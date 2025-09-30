@@ -11,11 +11,11 @@ A descrição completa do desafio pode ser encontrada [aqui](https://autou-digit
 - [Tecnologias utilizadas](#tecnologias-utilizadas)
 - [Elaboração](#elaboração)
 - [Utilização](#utilização)
-  -[Usando o serviço no Railway](#usando-o-serviço-no-railway)
-  -[Hospedando localmente](#hospedando-localmente)
-    -[Hospedando por meio do Flask](#hsopedando-por-meio-do-flask)
-    -[Rodando localmente com o Docker](#rodando-localmente-com-o-docker)
--[Uso da interface de usuário](#uso-da-interface-de-usuário)
+  - [Usando o serviço no Railway](#usando-o-serviço-no-railway)
+  - [Hospedando localmente](#hospedando-localmente)
+    - [Hospedando por meio do Flask](#hsopedando-por-meio-do-flask)
+    - [Rodando localmente com o Docker](#rodando-localmente-com-o-docker)
+- [Uso da interface de usuário](#uso-da-interface-de-usuário)
 
 ## Tecnologias utilizadas
 
