@@ -14,20 +14,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
     fileInput.addEventListener('change', (e) => {
         if (e.target.files.length > 0) {
-            fileName.textContent = `✓ ${e.target.files[0].name}`;
+            if (e.target.files.length === 1) {
+                fileName.textContent = `✓ ${e.target.files[0].name}`;
+            } else {
+                fileName.textContent = `✓ ${e.target.files.length} arquivos selecionados`;
+            }
         }
     });
 
     analyzeBtn.addEventListener('click', async () => {
-        const file = fileInput.files[0];
+        const files = fileInput.files;
         
-        if (!file) {
-            showError('Por favor, selecione um arquivo.');
+        if (files.length === 0) {
+            showError('Por favor, selecione pelo menos um arquivo.');
             return;
         }
 
         const formData = new FormData();
-        formData.append('file', file);
+        for (let i = 0; i < files.length; i++) {
+            formData.append('files', files[i]);
+        }
         formData.append('comentarios', comments.value);
 
         analyzeBtn.disabled = true;
@@ -88,10 +94,11 @@ document.addEventListener('DOMContentLoaded', () => {
         // Lista de e-mails
         emailsList.innerHTML = emails.map(email => {
             const classe = email.classificacao === 'Importante' ? 'importante' : 'nao-importante';
+            const titulo = email.titulo || 'Sem título';
             return `
                 <div class="email-item ${classe}">
                     <div class="email-header">
-                        <span class="email-id">E-mail #${email.id_email || 'N/A'}</span>
+                        <span class="email-id">E-mail #${email.id_email || 'N/A'} - ${titulo}</span>
                         <span class="badge ${classe}">${email.classificacao}</span>
                     </div>
                     <div class="email-content">

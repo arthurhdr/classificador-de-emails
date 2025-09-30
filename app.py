@@ -28,33 +28,37 @@ def index():
 # Rota para receber os dados e categorizar
 @app.route('/categorizar', methods=['POST'])
 def categorizar_emails():
-    # Verifica se o arquivo foi enviado na requisição
-    if 'file' not in request.files:
+    # Verifica se os arquivos foram enviados na requisição
+    if 'files' not in request.files:
         return jsonify({"error": "Nenhum arquivo enviado"}), 400
 
-    file = request.files['file']
+    files = request.files.getlist('files')
     comentarios_adicionais = request.form.get('comentarios', '')
 
-    # Se o usuário não selecionou um arquivo, o navegador envia um
-    # arquivo vazio sem nome.
-    if file.filename == '':
+    # Se o usuário não selecionou nenhum arquivo
+    if len(files) == 0 or all(file.filename == '' for file in files):
         return jsonify({"error": "Nenhum arquivo selecionado"}), 400
 
     texto_emails = ""
-    try:
-        if file.filename.lower().endswith('.pdf'):
-            # Processa o arquivo PDF
-            with fitz.open(stream=file.read(), filetype="pdf") as doc:
-                for page in doc:
-                    texto_emails += page.get_text()
-        elif file.filename.lower().endswith('.txt'):
-            # Processa o arquivo TXT
-            texto_emails = file.read().decode('utf-8')
-        else:
-            return jsonify({"error": "Formato de arquivo não suportado. Use .txt ou .pdf"}), 400
-    except Exception as e:
-        return jsonify({"error": f"Erro ao ler o arquivo: {e}"}), 500
-        
+    
+    for file in files:
+        if file.filename == '':
+            continue
+            
+        try:
+            if file.filename.lower().endswith('.pdf'):
+                # Processa o arquivo PDF
+                with fitz.open(stream=file.read(), filetype="pdf") as doc:
+                    for page in doc:
+                        texto_emails += page.get_text() + "\n"
+            elif file.filename.lower().endswith('.txt'):
+                # Processa o arquivo TXT
+                texto_emails += file.read().decode('utf-8') + "\n"
+            else:
+                return jsonify({"error": f"Formato de arquivo não suportado: {file.filename}. Use .txt ou .pdf"}), 400
+        except Exception as e:
+            return jsonify({"error": f"Erro ao ler o arquivo {file.filename}: {e}"}), 500
+
     # Monta o prompt exatamente como especificado
     prompt = f"""
 Você é um categorizador de e-mails. Sua tarefa é analisar o texto de e-mails fornecido abaixo e classificá-los em 'Importante' ou 'Não Importante'.
@@ -74,8 +78,8 @@ E-mails para Classificar (Os e-mails podem ou não ser numerados):
 Formato de Saída Obrigatório: Retorne a saída estritamente como um JSON formatado da seguinte forma. Não inclua texto explicativo antes ou depois.
 {{
   "resultado_categorizacao": [
-    {{ "id_email": 1, "classificacao": "Importante", "justificativa_curta": "Menciona 'Fatura Vencida'.", "ideia_de_resposta": "Política da empresa sobre fatura atrasada" }},
-    {{ "id_email": 2, "classificacao": "Não Importante", "justificativa_curta": "É uma newsletter semanal de marketing.", "ideia_de_resposta": "Não responder" }}
+    {{ "id_email": 1, "titulo": "Fatura Vencida", "classificacao": "Importante", "justificativa_curta": "Menciona 'Fatura Vencida'.", "ideia_de_resposta": "Política da empresa sobre fatura atrasada" }},
+    {{ "id_email": 2, "titulo": "Newsletter Marketing", "classificacao": "Não Importante", "justificativa_curta": "É uma newsletter semanal de marketing.", "ideia_de_resposta": "Não responder" }}
   ]
 }}
 """
