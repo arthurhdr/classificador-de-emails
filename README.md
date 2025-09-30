@@ -13,7 +13,9 @@ A descrição completa do desafio pode ser encontrada [aqui](https://autou-digit
 - [Utilização](#utilização)
   -[Usando o serviço no Railway](#usando-o-serviço-no-railway)
   -[Hospedando localmente](#hospedando-localmente)
-  -[Uso da interface de usuário](#uso-da-interface-de-usuário)
+    -[Hospedando por meio do Flask](#hsopedando-por-meio-do-flask)
+    -[Rodando localmente com o Docker](#rodando-localmente-com-o-docker)
+-[Uso da interface de usuário](#uso-da-interface-de-usuário)
 
 ## Tecnologias utilizadas
 
@@ -53,10 +55,18 @@ Para acessar em sua máquina primeiro deve-se clonar o repositório em um local 
 git clone https://github.com/arthurhdr/classificador-de-emails
 ```
 
+#### Hsopedando por meio do Flask
+
 Na pasta criada baixar os requerimentos necessários
 
 ```bash
 pip install -r requirements.txt
+```
+
+Para o funcionamento do aplicativo é necessário ter uma chave de API da Gemini, portanto deve-se criar um arquivo .env na pasta do repositório contendo
+
+```
+GEMINI-API-KEY=Insira a chave 
 ```
 
 E então inicie o servidor de desenvolvimento
@@ -67,6 +77,26 @@ flask run
 
 Após isso, se acessa o link fornecido pelo Flask
 
-### Uso da interface de usuário
+#### Rodando localmente com o Docker
+
+O repositório contém um Dockerfile contendo instruções de como montar a imagem, portanto basta rodar no terminal no local do repositório
+
+```bash
+docker build -t categorizador-emails .
+```
+
+E executar o container
+
+```bash
+docker run -d -p 5000:5000 -e GEMINI_API_KEY=sua_chave_aqui categorizador-emails
+```
+
+E acessar o link
+
+```url
+http://127.0.0.1:5000/
+```
+
+## Uso da interface de usuário
 
 Para utilizar o aplicativo basta anexar todos os arquivos que devem ser lidos para análise do programa, colocar os comentários adicionais (se necessários) e pedir a análise, após alguns segundos o programa retornará como a análise completa indicando os e-mails importantes e não-importantes dos arquivos. 
