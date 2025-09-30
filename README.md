@@ -7,7 +7,13 @@ O case prático consistia em criar um aplicativo que pudesse Classificar e-mails
 A descrição completa do desafio pode ser encontrada [aqui](https://autou-digital.notion.site/Case-Pr-tico-AutoU-Desenvolvimento-18836ce78e5580d0b59bcf9610b27769) e o aplicativo desenvolvido pode ser acessado por meio do  [link](https://classificador-de-emails.up.railway.app/)
 
 ## Menu
-
+- [Propósito](#email-classificador-de-e-mails)
+- [Tecnologias utilizadas](#tecnologias-utilizadas)
+- [Elaboração](#elaboração)
+- [Utilização](#utilização)
+  -[Usando o serviço no Railway](#usando-o-serviço-no-railway)
+  -[Hospedando localmente](#hospedando-localmente)
+  -[Uso da interface de usuário](#uso-da-interface-de-usuário)
 
 ## Tecnologias utilizadas
 
@@ -35,11 +41,11 @@ Contudo, a parte mais importante do programa, que é a parte que torna ele muito
 
 O programa pode ser utilizado tanto de forma online como na prórpia máquina do usuário, ambas as formas serão apresentadas.
 
-### Usando o site que o programa está hospedado
+### Usando o serviço no Railway
 
-Para acessar ao programa basta ter acesso a um navegador e acessar ao [link](https://classificador-de-emails.up.railway.app/)
+Para acessar ao programa hospedado por meio do Railway basta ter acesso a um navegador e acessar ao [link](https://classificador-de-emails.up.railway.app/)
 
-### Usando localmente
+### Hospedando localmente
 
 Para acessar em sua máquina primeiro deve-se clonar o repositório em um local a escolha em seu computador e, no terminal digitar
 
@@ -58,6 +64,8 @@ E então inicie o servidor de desenvolvimento
 ```bash
 flask run
 ```
+
+Após isso, se acessa o link fornecido pelo Flask
 
 ### Uso da interface de usuário
 
