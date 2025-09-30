@@ -67,6 +67,8 @@ Critérios de Classificação (Use estes critérios ou adicione os critérios do
 - 'Importante' se for sobre faturas, prazos, projetos de alto nível, ou contém palavras-chave de risco/urgência.
 - 'Não Importante' se for propaganda, newsletters, ou notificação de pouco valor.
 
+Por padrão coloque como resposta uma resposta curta, porém formate a resposta como o usuário requisitar, podendo ser longa ou em formataçaõ específica, além de responder e classificar de acordo com ele, a palavra mais forte é a do usuário
+
 Comentários Adicionais do Usuário: [{comentarios_adicionais}]
 
 E-mails para Classificar (Os e-mails podem ou não ser numerados):
