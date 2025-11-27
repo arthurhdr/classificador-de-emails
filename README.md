@@ -4,14 +4,14 @@ Aplicação desenvolvida a partir do case prático proposto no processo seletivo
 
 O case prático consistia em criar um aplicativo que pudesse Classificar e-mails em diferentes categorias baseado em seu conteúdo e gerar possíveis respostas para eles, facilitando em muito o trabalho dentro de empresas
 
-A descrição completa do desafio pode ser encontrada [aqui](https://autou-digital.notion.site/Case-Pr-tico-AutoU-Desenvolvimento-18836ce78e5580d0b59bcf9610b27769) e o aplicativo desenvolvido pode ser acessado por meio do  [link](https://classificador-de-emails.up.railway.app/)
+A descrição completa do desafio pode ser encontrada [aqui](https://autou-digital.notion.site/Case-Pr-tico-AutoU-Desenvolvimento-18836ce78e5580d0b59bcf9610b27769) e o aplicativo desenvolvido pode ser acessado por meio do  [link](https://classificador-de-emails-50a5.onrender.com/)
 
 ## Menu
 - [Propósito](#email-classificador-de-e-mails)
 - [Tecnologias utilizadas](#tecnologias-utilizadas)
 - [Elaboração](#elaboração)
 - [Utilização](#utilização)
-  - [Usando o serviço no Railway](#usando-o-serviço-no-railway)
+  - [Usando o serviço no Render](#usando-o-serviço-no-render)
   - [Hospedando localmente](#hospedando-localmente)
     - [Hospedando por meio do Flask](#hsopedando-por-meio-do-flask)
     - [Rodando localmente com o Docker](#rodando-localmente-com-o-docker)
@@ -43,9 +43,9 @@ Contudo, a parte mais importante do programa, que é a parte que torna ele muito
 
 O programa pode ser utilizado tanto de forma online como na prórpia máquina do usuário, ambas as formas serão apresentadas.
 
-### Usando o serviço no Railway
+### Usando o serviço no Render
 
-Para acessar ao programa hospedado por meio do Railway basta ter acesso a um navegador e acessar ao [link](https://classificador-de-emails.up.railway.app/)
+Para acessar ao programa hospedado por meio do Render basta ter acesso a um navegador e acessar ao [link](https://classificador-de-emails-50a5.onrender.com/)
 
 ### Hospedando localmente
 
